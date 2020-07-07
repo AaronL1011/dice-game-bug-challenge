@@ -11,7 +11,7 @@ class App extends React.Component {
   losses = [];
   wins = [];
   state = {
-    game: 0,
+    games: 0,
     yourChoice: '',
     AIChoice: null,
     one:
@@ -25,18 +25,18 @@ class App extends React.Component {
     five:
       'https://game-icons.net/icons/ffffff/000000/1x1/delapouite/dice-six-faces-five.svg',
     six:
-      'https://game-icons.net/icons/ffffff/000000/1x1/delapouite/dice-six-faces-six.svg',
+      'https://game-icons.net/icons/ffffff/000000/1x1/delapouite/dice-six-faces-six.svg'
   };
   AIChoice = () => {
     this.setState({
-      AIChoice: Math.floor(Math.random() * 6) + 1,
+      AIChoice: Math.floor(Math.random() * 6) + 1
     });
   };
 
   startGame = () => {
     this.setState({
       yourChoice: Math.floor(Math.random() * 6) + 1,
-      games: this.state.games,
+      games: this.state.games + 1
     });
 
     this.AIChoice();
@@ -49,7 +49,7 @@ class App extends React.Component {
     this.setState({
       yourChoice: '',
       AIChoice: null,
-      games: 0,
+      games: 0
     });
   };
 
@@ -63,7 +63,7 @@ class App extends React.Component {
           yourChoice={this.state.yourChoice}
           AIChoice={this.state.AIChoice}
         />
-        <div className="effects">
+        <div className='effects'>
           <YourResult allstates={this.state} />
           <AIresult allstates={this.state} />
         </div>
